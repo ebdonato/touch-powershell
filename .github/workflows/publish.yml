@@ -24,17 +24,21 @@ jobs:
         env:
           NUGET_KEY: ${{ secrets.NUGET_KEY }}
         run: |
-          $manifestPath = './touch.psd1'
+          # Create temp directory for module
+          $moduleName = 'touch'
+          $tempDir = '/tmp/psmodule'
+          $moduleDir = "$tempDir/$moduleName"
           
-          # Validate the manifest exists
-          if (-not (Test-Path $manifestPath)) {
-              Write-Error "Module manifest not found at $manifestPath"
-              exit 1
-          }
+          # Create module directory structure
+          New-Item -ItemType Directory -Path $moduleDir -Force | Out-Null
+          
+          # Copy module files
+          Copy-Item -Path './touch.psd1' -Destination "$moduleDir/" -Force
+          Copy-Item -Path './touch.psm1' -Destination "$moduleDir/" -Force
+          Copy-Item -Path './README.md' -Destination "$moduleDir/" -Force
           
           # Publish the module
-          Publish-Module -Path '.' `
+          Publish-Module -Path $moduleDir `
             -NuGetApiKey $env:NUGET_KEY `
             -Repository PSGallery `
-            -SkipPublisherCheck `
             -Verbose
