@@ -24,7 +24,6 @@ jobs:
         env:
           NUGET_KEY: ${{ secrets.NUGET_KEY }}
         run: |
-          $modulePath = '.'
           $manifestPath = './touch.psd1'
           
           # Validate the manifest exists
@@ -34,7 +33,8 @@ jobs:
           }
           
           # Publish the module
-          Publish-Module -Path $modulePath `
+          Publish-Module -Path '.' `
             -NuGetApiKey $env:NUGET_KEY `
             -Repository PSGallery `
+            -SkipPublisherCheck `
             -Verbose
