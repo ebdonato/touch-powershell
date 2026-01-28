@@ -1,6 +1,6 @@
 @{
      RootModule          = 'TouchCmd.psm1'
-    ModuleVersion       = '1.0.0'
+    ModuleVersion       = '1.0.1'
     GUID                = 'f7c8d9e0-a1b2-4c3d-e5f6-47a8b9c0d1e2'
     Author              = 'Eduardo DONATO'
     CompanyName         = 'ebdonato'

@@ -1,4 +1,4 @@
-# PowerShell Touch
+# PowerShell TouchCmd
 
 A PowerShell implementation of the Unix `touch` command for Windows. This module provides the familiar `touch` functionality to PowerShell users who want to create new files or update file timestamps.
 
@@ -14,19 +14,19 @@ A PowerShell implementation of the Unix `touch` command for Windows. This module
 ### From PowerShell Gallery
 
 ```powershell
-Install-Module -Name touch -Repository PSGallery
+Install-Module -Name TouchCmd -Scope CurrentUser
 ```
 
 ### Manual Installation
 
 1. Clone or download this repository
 2. Copy the module folder to your PowerShell modules directory:
-   - Windows: `$PROFILE\..\Modules\touch\`
+   - Windows: `$PROFILE\..\Modules\TouchCmd\`
    - Or place in any directory in your `$PSModulePath`
 3. Import the module:
 
    ```powershell
-   Import-Module touch
+   Import-Module TouchCmd
    ```
 
 ## Usage
