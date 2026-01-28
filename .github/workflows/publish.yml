@@ -1,0 +1,43 @@
+name: Publish to PowerShell Gallery
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup PowerShell
+        uses: PowerShell/setup-powershell@v2
+      
+      - name: Validate module manifest
+        shell: pwsh
+        run: |
+          $manifestPath = './touch.psd1'
+          Test-ModuleManifest -Path $manifestPath
+      
+      - name: Publish module to PowerShell Gallery
+        shell: pwsh
+        env:
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        run: |
+          $modulePath = '.'
+          $manifestPath = './touch.psd1'
+          
+          # Validate the manifest exists
+          if (-not (Test-Path $manifestPath)) {
+              Write-Error "Module manifest not found at $manifestPath"
+              exit 1
+          }
+          
+          # Publish the module
+          Publish-Module -Path $modulePath `
+            -NuGetApiKey $env:NUGET_KEY `
+            -Repository PSGallery `
+            -Verbose
