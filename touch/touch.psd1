@@ -23,7 +23,7 @@
     AliasesToExport     = @()
     DSCResourcesToExport = @()
     ModuleList          = @()
-    FileList            = @('touch.psm1', 'touch.psd1', 'README.md')
+     FileList            = @('touch.psm1', 'touch.psd1')
     PrivateData         = @{
         PSData = @{
             Tags                = @('touch', 'file', 'unix', 'command', 'filesystem', 'windows', 'powershell')
