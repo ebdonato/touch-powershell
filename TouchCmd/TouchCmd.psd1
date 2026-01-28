@@ -1,5 +1,5 @@
 @{
-    RootModule          = 'touch.psm1'
+     RootModule          = 'TouchCmd.psm1'
     ModuleVersion       = '1.0.0'
     GUID                = 'f7c8d9e0-a1b2-4c3d-e5f6-47a8b9c0d1e2'
     Author              = 'Eduardo DONATO'
@@ -23,7 +23,7 @@
     AliasesToExport     = @()
     DSCResourcesToExport = @()
     ModuleList          = @()
-     FileList            = @('touch.psm1', 'touch.psd1')
+      FileList            = @('TouchCmd.psm1', 'TouchCmd.psd1')
     PrivateData         = @{
         PSData = @{
             Tags                = @('touch', 'file', 'unix', 'command', 'filesystem', 'windows', 'powershell')

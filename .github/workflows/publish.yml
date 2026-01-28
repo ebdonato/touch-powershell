@@ -16,7 +16,7 @@ jobs:
       - name: Validate module manifest
         shell: pwsh
         run: |
-          $manifestPath = './touch/touch.psd1'
+          $manifestPath = './TouchCmd/TouchCmd.psd1'
           Test-ModuleManifest -Path $manifestPath
       
       - name: Publish module to PowerShell Gallery
@@ -24,14 +24,14 @@ jobs:
         env:
           NUGET_KEY: ${{ secrets.NUGET_KEY }}
         run: |
-          # Copy README to touch directory for packaging
-          Copy-Item -Path './README.md' -Destination './touch/README.md' -Force
+          # Copy README to TouchCmd directory for packaging
+          Copy-Item -Path './README.md' -Destination './TouchCmd/README.md' -Force
           
-          # Publish the module from the touch directory
-          Publish-Module -Path './touch' `
+          # Publish the module from the TouchCmd directory
+          Publish-Module -Path './TouchCmd' `
             -NuGetApiKey $env:NUGET_KEY `
             -Repository PSGallery `
             -Verbose
           
           # Clean up the copied README
-          Remove-Item -Path './touch/README.md' -Force
+          Remove-Item -Path './TouchCmd/README.md' -Force
