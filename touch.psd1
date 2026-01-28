@@ -1,7 +1,7 @@
 @{
     RootModule          = 'touch.psm1'
     ModuleVersion       = '1.0.0'
-    GUID                = 'f7c8d9e0-a1b2-4c3d-e5f6-47g8h9i0j1k2'
+    GUID                = 'f7c8d9e0-a1b2-4c3d-e5f6-47a8b9c0d1e2'
     Author              = 'Eduardo DONATO'
     CompanyName         = 'ebdonato'
     Copyright           = '(c) 2026 Eduardo DONATO. All rights reserved.'
